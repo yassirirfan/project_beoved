@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+<%- include('partials/profile-bar') %>
+
+<div class="profileView">
+    <div class="profile-top-view">
+
+      <div class="user-profile">
+        <img src="profile-user.png" alt="">
+      </div>
+
+      <div class="popup_box">
+        <div class="createPost">
+            <h1 style="color: black">CREATE POST</h1>
+            <form action="/submit-post" method="POST">
+                <input name="postTitle" class="createPost_box" type="text" placeholder="Title" id="">
+                <textarea name="postContent" class="createPost_box" placeholder="Start typing..." rows="3" name="" id=""></textarea>
+                <button class="createPost_submit" type="submit">Post</button>
+            </form>
+        </div>         
+        <div class="close"><i class="fa fa-times"></i></div>
+      </div>
+        <div class="top-left">
+            <h1><%= 'USER-' + userName % 10**8 %></h1>
+            <button>Edit Profile</button>
+            <h6>When you share a post, they'll appear in  your profile</h6>
+            <div class="post-container">
+              <div class="popup">
+                Create Post <i class="bi bi-pencil-square"></i>
+              </div>
+            </div>
+        </div>
+
+          <script>
+              $(function() {
+  var appendthis = "<div class='overlay'></div>";
+  $(".popup").on("click", function(e) {
+    e.preventDefault();
+    $("body").append(appendthis);
+    $(".overlay").fadeTo(500, 0.7);
+    $(".popup_box").fadeTo(100, 1).removeClass("boom-out").addClass("boom-in");
+    //   var box_id = $(this).attr('data-popup-id');
+    //   $('#'+box_id).fadeIn($(this).data());
+  });
+
+  //   close the popup box
+
+  $(document).on("click", ".close, .overlay", function() {
+    $(".popup_box").addClass("boom-out").removeClass("boom-in").fadeTo(100, 0);
+
+    $(".overlay").fadeOut(500, function() {
+      $(this).remove();
+    });
+  });
+
+  //   keep popup in center
+  $(window).resize(function() {
+    $(".popup_box").css({
+      top: ($(window).height() - $(".popup_box").outerHeight(true)) / 2 + 5,
+      left: ($(window).width() - $(".popup_box").outerWidth(true)) / 2
+    });
+    if ($(this).width() <= 480) {
+      $(".popup_box").css({
+        top: ($(window).height() - $(".popup_box").outerHeight(true)) / 2 + 5,
+        left: ($(window).width() - $(".popup_box").outerWidth(true)) / 2 + 3
+      });
+    }
+  });
+
+  $(window).resize();
+});
+          </script>
+
+    </div>
+
+
+<div class="bottom">
+    <div class="post-grid" id="post-grid">
+      
+      <% userPosts.forEach( (post) => {%>
+      <div class="post" name="post">
+        <h3><%=post.title%></h3>
+        <p><%=post.content%></p>
+        <div class="postDate"> 
+          <%=post.time%> 
+          <i class="bi bi-trash"></i>
+        </div>
+      </div>  
+      <% }) %>
+
+    </div>
+</div>
+</div>
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,104 @@
+<%- include('partials/header') %>
+
+<div class="regSign-container" id="regSign-container">
+
+
+	<div class="form-container sign-up-container">
+
+
+		<form action="/register"  method="POST" id="from-regSign">
+			<h1 id="h1-regSign">Create Account</h1>
+
+
+			<div class="social-container">
+				<a id="a-regSign" href="/auth/google" class="social"><img class="icon icon-btn" src="google.png" /></a>
+			</div>
+			<p id="p-regSign">or use your email for registration</p>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><img class="icon icon-input" src="email.png"></div>
+                </div>
+                <input name="usrEmail" type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><img class="icon icon-input" src="padlock.png"></div>
+                </div>
+                <input name="usrPassword" type="password" class="form-control" id="inlineFormInputGroup" placeholder="Super Password">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><img class="icon icon-input" src="padlock.png"></div>
+                </div>
+                <input name="usrConfirmPassword" type="password" class="form-control" id="inlineFormInputGroup" placeholder="Confirm Super Password">
+            </div>
+
+            
+			<button class="button-regSign">Sign Up</button>
+		</form>
+	</div>
+
+    
+	<div class="form-container sign-in-container">
+		<form action="/login" method="POST">
+			<h1 id="h1-regSign">Sign in</h1>
+			<div class="social-container">
+				<a id="a-regSign" href="/auth/google" class="social"><img class="icon icon-btn" src="google.png" /></a>
+			</div>
+			<p id="p-regSign">or use your account</p>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><img class="icon icon-input" src="user.png"></div>
+                </div>
+                <input  name="loginUsername" type="email" class="form-control" id="inlineFormInputGroup" placeholder="Email">
+            </div>
+
+            
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><img class="icon icon-input" src="padlock.png"></div>
+                </div>
+                <input name="loginPassword" type="text"  class="form-control" id="inlineFormInputGroup" placeholder="Password">
+            </div>
+
+
+
+			<a  id="a-regSign" href="#">Forgot your password?</a>
+			<button class="button-regSign" >Sign In</button>
+
+
+		</form>
+
+
+	</div>
+	<div class="overlay-container-register">
+		<div class="overlay-register">
+			<div class="overlay-panel overlay-left">
+				<h1 id="h1-regSign">Welcome Back!</h1>
+				<p id="p-regSign">To keep connected with us please login with your personal info</p>
+				<button class="ghost button-regSign " id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1 id="h1-regSign">Hello, Friend!</h1>
+				<p id="p-regSign">Enter your personal details and start journey with us</p>
+				<button class="ghost button-regSign" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('regSign-container');
+
+    signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+    });
+</script>

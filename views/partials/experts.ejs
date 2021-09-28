@@ -1,0 +1,59 @@
+  
+  <script type="text/babel">
+
+let expertsArray = [
+    {
+    statementStart:
+    "People are reaching out to us on Instagram for help.",
+    statement:
+    "Remember, you are not alone. Be honest about experiencing panic and fear. Reach out to one person a day, check on them, share something uplifting. Follow the news just to be aware [too much will induce panic]. Read offline and online, walk or exercise indoors, meditate, spend time with pets [if any] and connect with nature. I’d suggest looking for creative activities, looking for creative activities, DIY craft hobby videos, or even signing up for an online course. ",
+    name:
+    "Bhairavi Prakash",
+    designation:
+    "Founder, Mithra Trust",
+    image:
+    "portrait.jpg"
+    },
+    {
+    statementStart:
+    "People are reaching out to us on Instagram for help.",
+    statement:
+    "Remember, you are not alone. Be honest about experiencing panic and fear. Reach out to one person a day, check on them, share something uplifting. Follow the news just to be aware [too much will induce panic]. Read offline and online, walk or exercise indoors, meditate, spend time with pets [if any] and connect with nature. I’d suggest looking for creative activities, looking for creative activities, DIY craft hobby videos, or even signing up for an online course. ",
+    name:
+    "Reshma Valiappan ",
+    designation:
+    "The Red Door India",
+    image:
+    "portrait.jpg"
+    }
+  ];
+
+  function Experts(props){
+      return(
+              <div class="expert-data">
+                <div class="expert-content">
+                  <div id="title-expert">
+                    <img class="expert-dp-top" src={props.image} />
+                    <h2>{props.statementStart}</h2></div>
+                  <div class="content-box">
+                  <h5>{props.statement}</h5>
+                  </div>
+                  <h1 class="expert_name">{props.name}<span class="expert_profession">{props.designation}</span></h1>
+                  <a>Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+                </div>
+      )
+  }
+
+      ReactDOM.render(
+        expertsArray.map( (data, index )=> {
+           return <Experts key={index} name={data.name} designation={data.designation} statement={data.statement} statementStart={data.statementStart} image={data.image} />
+        })
+        ,
+        document.getElementById('experts-navigation')
+      );
+  </script>
+
+<div id="experts-navigation" class="experts"></div>
+
+

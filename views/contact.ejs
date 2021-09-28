@@ -1,0 +1,97 @@
+<%- include('partials/header') %>
+<div class="contact-container">
+    <span class="big-circle"></span>
+    <img src="shape.png"class="square"alt=""/>
+    <div class="contact-form1">
+        <div class="contact-info">
+            <h3 class="title">Let's get in touch</h3>
+            <p class="text">Lorem ipum sir hvhfhjhjnnsd
+                hdjhhddjdjdj hhdhdh hjhhhh huhfuhfuuu!gfyrfrufffkn
+                uifieirjfk uutttkm kgkgoroit iutiuititowk.
+            </p>
+
+            <div class="info">
+                <div class="information">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <p>92 Cherry Drive Uniondate,NY 11553</p>
+                 </div>
+                 <div class="information">
+                    <i class="bi bi-info-circle-fill"></i>
+                    <p>lorem@ipsm.com</p>
+                 </div>
+                 <div class="information">
+                    <i class="bi bi-telephone-forward-fill"></i>
+                    <p>123-567-789</p>
+                 </div>
+
+            </div>
+            <div class="social-media">
+                <p>Connect withus:</p>
+                <div class="social-icons">
+                    <a href="#">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form2">
+            <form action="index.html"autocomplete="off">
+                <h3 class="title">Contact Us</h3>
+                <div class="input-container">
+                    <input type="text"name="name" class="input"/>
+                    <label for="">Username</label>
+                    <span>Username</span>
+                </div>
+                <div class="input-container">
+                    <input type="email"name="email" class="input"/>
+                    <label for="">Email</label>
+                    <span>Email</span>
+                </div>
+                <div class="input-container">
+                    <input type="tel"name="Phone" class="input">
+                    <label for="">Phone</label>
+                    <span>Phone</span>
+                </div>
+                <div class="input-container textarea">
+                    <textarea name="message" class="input"></textarea>
+                    <label for="">Message</label>
+                    <span>Message</span>
+                </div>
+                <input type="submit" value="Send" class="btn"/>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script> 
+
+    const inputs=document.querySelectorAll(".input");
+
+    function focusFunc(){
+    let parent=this.parentNode;
+    parent.classList.add("focus");
+    }
+    function blurFunc(){
+        let parent=this.parentNode;
+        if(this.value==""){
+        parent.classList.remove("focus");
+      }
+    
+    }
+    
+    inputs.forEach((input) => {
+        input.addEventListener("focus",focusFunc);
+        input.addEventListener("blur",blurFunc);
+    });
+
+</script>

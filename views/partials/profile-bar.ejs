@@ -1,0 +1,26 @@
+<div class="profile-bar-container">
+  <nav class="navbar-profile">
+      <h1 id="navbar-logo"><img id="logo" src="logo.png"></h1>
+      <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>     
+      </div>
+      <ul class="nav-menu">
+          <li><a href="/feed" class="nav-links">Feed</a></li>
+          <li><a href="#" class="nav-links">Contact Us</a></li>
+          <li><a href="/profile" class="nav-links nav-links-btn">Profile</a></li>
+
+      </ul>
+  </nav>
+
+  <script>
+    const menu=document.querySelector('#mobile-menu');
+    const menuLinks= document.querySelector('.nav-menu');
+
+    menu.addEventListener('click',function(){
+      menu.classList.toggle('is-active');
+      menuLinks.classList.toggle('active');
+    })
+  </script>
+</div>  
