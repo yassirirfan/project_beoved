@@ -41,10 +41,9 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true});
 //Schemas
 
 const userSchema = new mongoose.Schema({
-    name:String,
-    googleId:String,
-    email:String,
-    password:String
+    email: String,
+    password: String,
+    googleId: String
 })
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
