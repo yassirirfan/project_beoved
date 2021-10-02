@@ -41,7 +41,8 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true});
 //Schemas
 
 const userSchema = new mongoose.Schema({
-    email: String,
+    name: String,
+    email:String,
     password: String,
     googleId: String
 })
@@ -131,6 +132,7 @@ app.get("/profile", (req,res)=> {
         if(req.user.name == undefined) name = req.user.googleId;
         else name = req.user.name;
 
+
         Post.find({"name":name} , (err,foundPosts) => {
             if(!err) res.render("profile", {userPosts: foundPosts, userName:name});
         }) 
@@ -173,7 +175,7 @@ app.post("/register",(req,res) => {
                 bcrypt.hash(newPassword1,saltRounds,(err,hash) => {
                     if(!err){
                         const user = new User({
-                            name:Date.now() + Math.floor(Math.random()*10),
+                            name:  Date.now() + Math.floor(Math.random()*10),
                             email:newEmail,
                             password:hash
                         })
