@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+<%- include('partials/profile-bar') %>
+
+    <div class="commentSection-page">
+
+        <div class="top-rightSection">
+            <div class="noteBox">
+                <h2><span><i class="bi bi-star-half"></i></span>How should I reply? </h2>
+                <ul>
+                    <li>Read the thoughts carefully to understand the emotions behind them.</li>
+                    <li>Take your time to think before your respond.</li>
+                    <li>Your words matter. Use them to show support.</li>
+                    <li>Try to be as honest and open-minded as possible.</li>
+                    <li>Personal responses go a long way in keeping the community kind, loving and empathetic.</li>
+                </ul>
+                <h3>Share with your friends who might relate or can help out <span><i class="bi bi-share"></i></span></h3>
+            </div>
+        </div>
+
+        <div class="leftSection">
+            <div class="read-post-view">
+                <div class="postDetails">
+                    <img class="user-dp" src="/post-profile.png">
+                    <span>
+                        <h4 class="postView-font"><%= "USER-" + (postsData.name) % (10**8) %></h4>
+                        <p class="date postView-font"><%=postsData.time%><span>, Edited</span></p>
+                    </span>
+                </div>
+                <div class="read-post">
+                    <p><%=postsData.content %></p>
+                </div>
+                <div class="commentNum postView-font "><%=comments.length%> comments</div>
+            </div>
+
+            <% let postId = postsData._id %>
+
+            <form action="/comment/<%= postId %>" method="POST" >
+                <div class="postComment">
+                    <textarea name="comment" class="post-box" type="text" name="" id="" placeholder="What are your thoughts?"></textarea>
+                </div>
+                <div class="privacyProtect-message">
+                    <i class="bi bi-exclamation-triangle"> </i> <p>Dear User, for your own safety, we urge you to<strong> NOT
+                        share any personal information</strong> [email, phone number, 
+                        social media handles, address etc.] with other Beloved users. </p>
+                </div>
+                <button class="postButton" type="submit">Post</button>
+
+                <% let data = "" %>
+                <% if(comments.length  == 0 ) data = " No Comments yet " %>
+                <h4 id="no-comment"><%= data %></h4>
+
+            </form>
+            <% for(let i = (comments.length - 1); i>=0; i--) {%>
+            <div class="comments">
+                <div class="img-section">
+                    <img class="user-dp" src="/post-profile.png">
+                    <div class="comment-line"></div>
+                </div>
+                <div class="content-section">
+                    <h3><%= 'USER-' + comments[i].user % 10**8 %> <span> Commented on <%= comments[i].time %></span></h3>
+                    <p><%= comments[i].comment %></p>
+                </div>
+            </div>
+            <% } %>
+
+        </div>
+
+
+
+        <div class="rightSection">
+            <div class="noteBox">
+                <h2><span><i class="bi bi-star-half"></i></span>How should I reply? </h2>
+                <ul>
+                    <li>Read the thoughts carefully to understand the emotions behind them.</li>
+                    <li>Take your time to think before your respond.</li>
+                    <li>Your words matter. Use them to show support.</li>
+                    <li>Try to be as honest and open-minded as possible.</li>
+                    <li>Personal responses go a long way in keeping the community kind, loving and empathetic.</li>
+                </ul>
+                <h3><i class="bi bi-share"></i>Share with your friends who might relate or can help out. </h3>
+            </div>
+        </div>
+
+        <script>
+            function showTextarea() {
+                var display = document.getElementById('replyBox').style.display;
+                if(display == "block")
+                      document.getElementById('replyBox').style.display = "none";
+                else
+                      document.getElementById('replyBox').style.display = "block";
+             }
+        </script>
+    </div>
+
+    <%- include('partials/footer') %>

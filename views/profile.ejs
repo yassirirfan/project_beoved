@@ -2,6 +2,9 @@
 <%- include('partials/profile-bar') %>
 
 <div class="profileView">
+
+
+
     <div class="profile-top-view">
 
       <div class="user-profile">
@@ -29,15 +32,15 @@
               </div>
             </div>
         </div>
-
-          <script>
+        
+<script>
               $(function() {
-  var appendthis = "<div class='overlay'></div>";
-  $(".popup").on("click", function(e) {
-    e.preventDefault();
-    $("body").append(appendthis);
-    $(".overlay").fadeTo(500, 0.7);
-    $(".popup_box").fadeTo(100, 1).removeClass("boom-out").addClass("boom-in");
+              var appendthis = "<div class='overlay'></div>";
+              $(".popup").on("click", function(e) {
+             e.preventDefault();
+              $("body").append(appendthis);
+             $(".overlay").fadeTo(500, 0.7);
+              $(".popup_box").fadeTo(100, 1).removeClass("boom-out").addClass("boom-in");
     //   var box_id = $(this).attr('data-popup-id');
     //   $('#'+box_id).fadeIn($(this).data());
   });
@@ -64,31 +67,37 @@
         left: ($(window).width() - $(".popup_box").outerWidth(true)) / 2 + 3
       });
     }
-  });
+          });
 
-  $(window).resize();
-});
-          </script>
-
+          $(window).resize();
+        });
+</script>
     </div>
 
+    <div class="noPost">    
+      <% let data = "" %>
+      <% if(userPosts.length  == 0 ) data = " No posts made yet " %>
+      <p><%= data %></p>
+    </div>
 
-<div class="bottom">
-    <div class="post-grid" id="post-grid">
-      
-      <% userPosts.forEach( (post) => {%>
-      <div class="post" name="post">
-        <h3><%=post.title%></h3>
-        <p><%=post.content%></p>
+  <div class="bottom">
+      <div class="post-grid" id="post-grid">
+        <% function dots(str,len) { %>
+          <% return str.length > len ? "..." : " " %>
+        <% } %>
+        <% for(let i = (userPosts.length - 1); i>=0; i--) {%>
+        <div class="post" name="post">
+          <h3><%=userPosts[i].title.substr(0,20) + dots(userPosts[i].title,20)%></h3>
+          <p><%=userPosts[i].content.substr(0,200) + dots(userPosts[i].content,201) %></p>
         <div class="postDate"> 
-          <%=post.time%> 
-          <i class="bi bi-trash"></i>
+          <%=userPosts[i].time%>    
+          <a href="/delete/<%= userPosts[i]._id %>"><i class="bi bi-trash" id="delete"></i></a>
         </div>
       </div>  
-      <% }) %>
-
+      <% } %>
     </div>
 </div>
+
 </div>
 
 
