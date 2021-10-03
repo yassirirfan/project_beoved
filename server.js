@@ -191,14 +191,13 @@ app.post("/register",(req,res) => {
                 })
 
             }
-            else res.send("Password donot match"); 
         }
     })
 })
 
 app.post('/login',
   passport.authenticate('local', { successRedirect: '/profile',
-                                   failureRedirect: '/register',
+                                   failureRedirect: '/error',
                                    failureFlash: true })
 );
 
@@ -251,7 +250,7 @@ app.get("/delete/:id", (req,res) => {
         else console.log(err)
     })
 })
-app.get("/changePassword/:id", (req,res) => {
+app.get("/changePassword", (req,res) => {
     User.findOne({_id:req.params.id},(err,data) => {
         if(!err){
             res.render("changePassword")
@@ -259,12 +258,8 @@ app.get("/changePassword/:id", (req,res) => {
     })
 })
 
-app.post("/changePassword/:id", (req,res) => {
-    User.findOne({_id:req.params.id},(err,data) => {
-        if(!err){
+app.post("/changePassword", (req,res) => {
             res.render("changePassword")
-        }
-    })
 })
 
 app.get("/read/:id",(req,res) => {
@@ -305,6 +300,10 @@ app.post("/comment/:id", (req,res) => {
         });
     }
     else res.redirect("/register")
+})
+
+app.get("/helpline", (req,res) => {
+    res.render("helpline")
 })
 
 //Hosting

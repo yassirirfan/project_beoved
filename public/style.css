@@ -389,14 +389,13 @@ body {
 #h1-regSign{
 	margin: 0;
 }
-#p-regSign {
+.p-regSign {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
+	margin: 10px 0 15px;
 }
-
 #span-regSign {
 	font-size: 12px;
 }
@@ -406,12 +405,17 @@ body {
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
+  font-weight: 500;
+}
+#a-regSign:hover{
+  font-weight: 600;
+  color: #525050;
 }
 .button-regSign {
 	border-radius: 20px;
 	border: 1px solid #28B5B5;
-	background-color: #28B5B5;
-	color: #FFFFFF;
+	color: #28B5B5;
+  background-color: #ffffff;
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -419,7 +423,11 @@ body {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 }
-
+.button-regSign:hover{
+  color: #ffffff;
+  background-color: #28B5B5;
+  transition: 0.5s;
+}
 .button-regSign:active {
 	transform: scale(0.95);
 }
@@ -429,8 +437,15 @@ body {
 }
 
 .button-regSign.ghost {
+  color: #FFFFFF;
 	background-color: transparent;
 	border-color: #FFFFFF;
+}
+
+.button-regSign.ghost:hover{
+  background-color: #ff3666;
+  border: none;
+  transition: 0.5s;
 }
 
 .form-container form {
@@ -573,13 +588,27 @@ body {
 
 .social-container a {
 	border: 1px solid #DDDDDD;
-	border-radius: 50%;
+  border-radius: 100px;
+  padding: 10px;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 	margin: 0 5px;
-	height: 40px;
-	width: 40px;
+}
+
+.social-container h4{
+  font-size: 15px;
+  margin: 0 0 0 12px;
+  display: none;
+}
+
+.social-container:hover h4{
+  display: block;
+}
+.invalid-message{
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--brightred);
 }
 /*---------------------------------------------------------- End | Register & Sign in  -----------------------------------------------*/
 /*-----------------------------------------------------------  About Page -------------------------------------------------------------*/
@@ -1426,6 +1455,7 @@ body {
 }
 .H3{
   font-size: 1.8em;
+  text-decoration: none;
 }
 .green {
   color: #4ec07d;
@@ -2406,3 +2436,100 @@ textarea.input{
     }
 }
 /*------------------------------------------------------ End | Read --------------------------------------------------------*/
+/*------------------------------------------------------ Start | Helpline --------------------------------------------------------*/
+.filter-bar{
+  line-height: 30px;
+  margin: 1% 5%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+}
+.grid-element{
+  margin: 0 10px;
+}
+.grid-element label{
+  font-size: 14px;
+}
+.helpline-box{
+  border-radius: 5px;
+  border-style: ridge;
+}
+.helpline-box:hover{
+  border-color: rgb(33, 179, 147);
+}
+.helpline-box option:not(:checked) { 
+  background-color: #fff;
+}
+.grid-element button{
+  color: #fff;
+  font-weight: 800;
+  background: rgb(33, 179, 147);
+  border-style: none;
+}
+.box-1{
+  padding: 8px;
+  width: 100%;
+}
+.box-2{
+  padding: 8px;
+  width: 95%;
+}
+.button label{
+  display: none;
+}
+.helpline-centers{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 50px;
+  margin: 1% 5%;
+  padding: 0 10px;
+}
+.helpline-card{
+  padding: 20px;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+}
+.card-title{
+  display: grid;
+  grid-template-columns: 30px auto 40px;
+}
+.card-title i{
+  font-size: 20px;
+}
+.card-title h2{
+  font-size: 20px;
+  font-weight: normal;
+}
+.card-title img{
+  width: 40px;
+  border-radius: 50%;
+  position: relative;
+  bottom: 7px;
+}
+.helpline-card{
+  line-height: 30px;
+  font-size: 14px;
+}
+.helpline-card i{
+  margin-right: 10px;
+  color: rgb(119, 119, 119);
+}
+
+@media (max-width:1000px){
+  .helpline-centers{
+      grid-template-columns: auto auto;
+  }
+}
+@media (max-width:800px) {
+  .filter-bar{
+      grid-template-columns: 50% 50%;
+  }
+}
+@media (max-width:700px){
+  .filter-bar{
+      grid-template-columns: auto;
+  }
+  .helpline-centers{
+      grid-template-columns: auto;
+  }
+}
+/*------------------------------------------------------ End | Helpline --------------------------------------------------------*/
