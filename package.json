@@ -15,7 +15,7 @@
     "mongoose": "^6.11.3",
     "mongoose-findorcreate": "^3.0.0",
     "node": "^16.6.1",
-    "passport": "^0.4.1",
+    "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
